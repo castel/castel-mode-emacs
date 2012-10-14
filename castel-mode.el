@@ -49,7 +49,7 @@
   "Castel identifiers regular expression.")
 
 (defvar castel-white-spaces-regexp
-  "\s"
+  "\\s-"
   "Castel white spaces regular expression.")
 
 (defvar castel-class-names-regexp
@@ -57,7 +57,7 @@
   "Castel class names regular expression.")
 
 (defvar castel-function-regexp
-  (concat "\\(?:constructor\\|\\(?:function\\|operator\\)\\(?:"castel-white-spaces-regexp"+\\("castel-identifiers-regexp"\\)\\)?\\)\\(?:"castel-white-spaces-regexp"*\\(\\(..."castel-white-spaces-regexp"*\\)?"castel-identifiers-regexp"\\)"castel-white-spaces-regexp"*[,:]\\)+")
+  (concat "\\(?:constructor\\(?1:\\)\\|\\(?:function\\|operator\\)\\(?:"castel-white-spaces-regexp"+\\(?1:"castel-identifiers-regexp"\\)\\|\\(?1:\\)\\)\\)\\(?:\\(?:"castel-white-spaces-regexp"*\\(?2:\\(?:..."castel-white-spaces-regexp"*\\)?"castel-identifiers-regexp"\\)"castel-white-spaces-regexp"*,?\\)+\\|\\(?2:\\)\\):")
   "Castel function parameters regular expression.")
 
 (defvar castel-types-regexp
